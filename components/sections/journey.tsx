@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import imgWinner from "@/public/images/certificate/winner-ui-ux.png";
 import Container from "../layout/container";
 import {
   SiMongodb,
   SiRedis,
   SiNodedotjs,
   SiExpress,
-  SiSocketdotio,
+  SiHtml5,
+  SiCss,
   SiTailwindcss,
 } from "react-icons/si";
 
@@ -22,10 +24,14 @@ const journeys = [
     image:
       "https://media.licdn.com/dms/image/v2/D560BAQGDZjqOV-FbMg/company-logo_200_200/company-logo_200_200/0/1724338915770?e=2147483647&v=beta&t=R2nlOve3jdJrPeBJUi8WbkEA29SmdgE91lB5to0KRVc",
     stack: [
+      { icon: SiExpress, color: "text-gray-400" },
       { icon: SiNodedotjs, color: "text-green-500" },
       { icon: SiMongodb, color: "text-green-600" },
       { icon: SiRedis, color: "text-red-500" },
-      { icon: SiSocketdotio, color: "text-foreground" },
+      { icon: SiHtml5, color: "text-orange-500" },
+      { icon: SiCss, color: "text-blue-500" },
+      { icon: SiTailwindcss, color: "text-cyan-400" },
+      { icon: null, label: "Zod", color: "text-foreground" },
     ],
   },
   {
@@ -43,13 +49,12 @@ const journeys = [
     ],
   },
   {
-    date: "August 2024",
-    title: "1st Place National Competition",
-    company: "National Technology Competition",
+    date: "October 2025",
+    title: "1st Place Winner – UI/UX Competition",
+    company: "Rafatech 2025 (UIN Raden Fatah Palembang)",
     description:
-      "Won first place in national-level software engineering and technology competition.",
-    image:
-      "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?q=80&w=400",
+      "Won first place in the national-level UI/UX competition, and also achieved national finalist status in the Web Development competition track.",
+    image: imgWinner.src,
     stack: [],
   },
   {
@@ -103,7 +108,7 @@ export default function Journey() {
                     alt={item.company}
                     width={80}
                     height={80}
-                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl border border-border object-cover grayscale transition duration-300 group-hover:grayscale-0 group-hover:scale-[1.02]"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl border border-border object-cover  transition duration-300 group-hover:grayscale-0 group-hover:scale-[1.02]"
                   />
                 </div>
                 <p className="sm:hidden text-sm font-semibold text-primary">
@@ -129,13 +134,25 @@ export default function Journey() {
                 </p>
 
                 {item.stack.length > 0 && (
-                  <div className="flex items-center gap-5 p-3 w-fit rounded-xl bg-muted/40 border border-border/40 backdrop-blur-sm">
+                  <div className="flex flex-wrap items-center gap-4 rounded-xl border border-border/40 bg-muted/40 p-3 backdrop-blur-sm">
                     {item.stack.map((tech, idx) => {
+                      if (!tech.icon) {
+                        return (
+                          <span
+                            key={idx}
+                            className={`text-sm font-semibold whitespace-nowrap ${tech.color}`}
+                          >
+                            {tech.label}
+                          </span>
+                        );
+                      }
+
                       const TechIcon = tech.icon;
+
                       return (
                         <TechIcon
                           key={idx}
-                          className={`text-2xl transition duration-300 hover:scale-125 ${tech.color}`}
+                          className={`text-2xl shrink-0 transition duration-300 hover:scale-125 ${tech.color}`}
                         />
                       );
                     })}

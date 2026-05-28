@@ -7,9 +7,13 @@ import {
   Cpu,
   Layers,
   Database,
+  Map,
   ShieldCheck,
   Terminal,
+  Zap,
   Globe,
+  Atom,
+  RefreshCw,
   Code2,
 } from "lucide-react";
 import { useState } from "react";
@@ -35,7 +39,7 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "HRIS & KPI Monitoring",
+    title: "HRIS Zafa Tour",
     description:
       "Sistem HRIS enterprise-grade yang mengotomatisasi seluruh siklus operasional SDM, mulai dari absensi berbasis geofencing, pengajuan cuti dan lembur dengan multi-level approval workflow, hingga manajemen perjalanan dinas dan kalkulasi performa KPI karyawan secara realtime dalam satu platform terintegrasi.",
     image: imgHris.src,
@@ -79,17 +83,16 @@ const projectsData: Project[] = [
     image: imgChanghong.src,
     techStack: [
       {
-        name: "Node.js",
-        icon: <Cpu className="w-3.5 h-3.5 text-emerald-500" />,
+        name: "Laravel",
+        icon: <Code2 className="w-3.5 h-3.5 text-red-500" />, // Ikon merah khas Laravel
       },
       {
-        name: "Express",
-        icon: <Code2 className="w-3.5 h-3.5 text-zinc-400" />,
+        name: "MySQL",
+        icon: <Database className="w-3.5 h-3.5 text-blue-600" />, // Ikon biru khas MySQL
       },
-      { name: "React", icon: <Layers className="w-3.5 h-3.5 text-cyan-400" /> },
       {
-        name: "MongoDB",
-        icon: <Database className="w-3.5 h-3.5 text-emerald-600" />,
+        name: "HTML",
+        icon: <Layers className="w-3.5 h-3.5 text-orange-500" />, // Ikon orange khas HTML
       },
     ],
     problem:
@@ -97,6 +100,7 @@ const projectsData: Project[] = [
     solution:
       "Mesin otomatis yang langsung memproses data penjualan harian jadi laporan siap bayar.",
     detailType: "page",
+    codeUrl: "https://github.com/mseptiawan/insentif-changhong",
   },
   {
     title: "Coffee Directory Platform",
@@ -112,16 +116,13 @@ const projectsData: Project[] = [
         name: "Tailwind CSS",
         icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
       },
-      {
-        name: "MongoDB",
-        icon: <Database className="w-3.5 h-3.5 text-emerald-600" />,
-      },
     ],
     problem:
       "Sulit mencari kedai kopi independen (hidden gem) yang ramah 'work from cafe'.",
     solution:
       "Sistem filter multi-kriteria interaktif yang terintegrasi maps realtime.",
     detailType: "modal",
+    codeUrl: "https://github.com/mseptiawan/coffe",
   },
   {
     title: "Marketplace Lokal Nusantara",
@@ -130,16 +131,16 @@ const projectsData: Project[] = [
     image: imgMarketplace.src,
     techStack: [
       {
-        name: "React Native",
-        icon: <Smartphone className="w-3.5 h-3.5 text-cyan-400" />,
-      },
-      {
-        name: "Laravel API",
+        name: "Laravel",
         icon: <Code2 className="w-3.5 h-3.5 text-red-500" />,
       },
       {
-        name: "PostgreSQL",
-        icon: <Database className="w-3.5 h-3.5 text-blue-400" />,
+        name: "MySQL",
+        icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
+      },
+      {
+        name: "Pusher",
+        icon: <Zap className="w-3.5 h-3.5 text-amber-500" />, // Ikon petir khas Pusher
       },
     ],
     problem:
@@ -147,6 +148,7 @@ const projectsData: Project[] = [
     solution:
       "Aplikasi mobile marketplace ringkas dengan sistem checkout yang dioptimasi.",
     detailType: "page",
+    codeUrl: "https://github.com/mseptiawan/marketplace",
   },
   {
     title: "Sistem Manajemen Rental Mobil",
@@ -154,14 +156,9 @@ const projectsData: Project[] = [
       "Sistem manajemen operasional rental mobil, mencakup jadwal booking armada hingga manajemen komisi.",
     image: imgBjb.src,
     techStack: [
-      { name: "Laravel", icon: <Code2 className="w-3.5 h-3.5 text-red-500" /> },
       {
-        name: "Blade",
-        icon: <Layers className="w-3.5 h-3.5 text-orange-500" />,
-      },
-      {
-        name: "MySQL",
-        icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
+        name: "React.js",
+        icon: <Code2 className="w-3.5 h-3.5 text-cyan-400" />,
       },
     ],
     problem:
@@ -169,6 +166,7 @@ const projectsData: Project[] = [
     solution:
       "Kalender ketersediaan armada otomatis terintegrasi sistem payment gateway.",
     detailType: "modal",
+    codeUrl: "https://github.com/mseptiawan/bjb-rentcar-palembang",
   },
   {
     title: "Direktori UMKM Daerah",
@@ -177,20 +175,16 @@ const projectsData: Project[] = [
     image: imgDirektoriUmkm.src,
     techStack: [
       {
-        name: "Next.js",
-        icon: <Globe className="w-3.5 h-3.5 text-foreground" />,
+        name: "React",
+        icon: <Code2 className="w-3.5 h-3.5 text-cyan-400" />,
       },
       {
         name: "Tailwind CSS",
         icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
       },
       {
-        name: "Express.js",
-        icon: <Cpu className="w-3.5 h-3.5 text-zinc-400" />,
-      },
-      {
-        name: "MongoDB",
-        icon: <Database className="w-3.5 h-3.5 text-emerald-600" />,
+        name: "Leaflet",
+        icon: <Map className="w-3.5 h-3.5 text-emerald-500" />, // Menggunakan ikon Map untuk Leaflet
       },
     ],
     problem:
@@ -198,6 +192,7 @@ const projectsData: Project[] = [
     solution:
       "Web direktori berperforma tinggi dengan fitur indexing cerdas dan direct link ke WhatsApp.",
     detailType: "modal",
+    codeUrl: "https://github.com/mseptiawan/direktori-umkm-plg",
   },
   {
     title: "Personal Tech Blog",
@@ -206,14 +201,21 @@ const projectsData: Project[] = [
     image: imgBlog.src,
     techStack: [
       {
-        name: "Next.js",
-        icon: <Globe className="w-3.5 h-3.5 text-foreground" />,
+        name: "React",
+        icon: <Atom className="w-3.5 h-3.5 text-sky-400" />,
+      },
+      {
+        name: "Inertia.js",
+        icon: <RefreshCw className="w-3.5 h-3.5 text-purple-500" />,
       },
       {
         name: "Tailwind CSS",
         icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
       },
-      { name: "MDX", icon: <Code2 className="w-3.5 h-3.5 text-amber-500" /> },
+      {
+        name: "MDX",
+        icon: <Code2 className="w-3.5 h-3.5 text-amber-500" />,
+      },
     ],
     problem:
       "Butuh media penulisan cepat yang mendukung syntax highlighting tanpa overhead database.",
@@ -368,33 +370,113 @@ export default function Projects() {
         </div>
       </Container>
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white dark:bg-zinc-900 border border-border rounded-2xl max-w-xl w-full p-6 relative shadow-2xl animate-in fade-in zoom-in-95 duration-150">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+          <div className="bg-white dark:bg-zinc-900 border border-border rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+            {/* Tombol Close */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground text-sm font-bold cursor-pointer"
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
             >
               ✕
             </button>
 
-            <h3 className="text-2xl font-black text-foreground mb-2">
-              {selectedProject.title}
-            </h3>
-            <p className="text-sm text-muted-foreground mb-5">
-              {selectedProject.description}
-            </p>
+            {/* Header */}
+            <div className="mb-8 pr-8">
+              <h3 className="text-3xl font-black mb-2">
+                {selectedProject.title}
+              </h3>
+              <p className="text-muted-foreground">
+                {selectedProject.description}
+              </p>
+            </div>
 
-            <div className="space-y-3 text-xs border-t border-border pt-4">
-              <p className="text-muted-foreground">
-                <span className="font-extrabold text-foreground">Problem:</span>{" "}
-                {selectedProject.problem}
-              </p>
-              <p className="text-muted-foreground">
-                <span className="font-extrabold text-purple-600 dark:text-purple-400">
-                  Solution:
-                </span>{" "}
-                {selectedProject.solution}
-              </p>
+            {/* Main Grid: Visual di kiri, Data di kanan */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Kolom Kiri: Visual/Images */}
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-2">
+                  <img
+                    src="/images/hris.png"
+                    className="rounded-lg border border-border col-span-2"
+                    alt="Dashboard"
+                  />
+                  <img
+                    src="/images/hris-detail-pengajuan.png"
+                    className="rounded-lg border border-border"
+                    alt="Detail"
+                  />
+                  <img
+                    src="/images/hris-kelola-kalender.png"
+                    className="rounded-lg border border-border"
+                    alt="Kalender"
+                  />
+                </div>
+              </div>
+
+              {/* Kolom Kanan: Data */}
+              <div className="space-y-6">
+                {/* Key Impact */}
+                <div className="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-xl border border-border">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
+                    Key Business Impact
+                  </h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="font-black text-lg">90%</div>
+                      <div className="text-[10px] text-muted-foreground">
+                        REDUKSI ERROR
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-black text-lg">
+                        kurang dari 1 Jam
+                      </div>
+                      <div className="text-[10px] text-muted-foreground">
+                        APPROVAL
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PIECES Ringkas */}
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest mb-3">
+                    Problem (PIECES)
+                  </h4>
+                  <div className="space-y-2">
+                    <p className="text-xs text-muted-foreground">
+                      •{" "}
+                      <span className="font-bold text-foreground">
+                        Performance:
+                      </span>{" "}
+                      Proses manual lambat.
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      •{" "}
+                      <span className="font-bold text-foreground">
+                        Control:
+                      </span>{" "}
+                      Data tersebar (WhatsApp/Kertas).
+                    </p>
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex gap-3 pt-4">
+                  <a
+                    href="#"
+                    className="flex-1 text-center py-2.5 bg-black dark:bg-white text-white dark:text-black text-xs font-bold rounded-lg cursor-pointer"
+                  >
+                    View on GitHub
+                  </a>
+                  <a
+                    href="#"
+                    className="flex-1 text-center py-2.5 bg-zinc-100 dark:bg-zinc-800 text-xs font-bold rounded-lg cursor-pointer"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
