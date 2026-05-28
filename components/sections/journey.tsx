@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import imgWinner from "@/public/images/certificate/winner-ui-ux.png";
 import Container from "../layout/container";
+import imgFinalist from "@/public/images/projects/marketplace-lokal.png";
 import {
   SiMongodb,
   SiRedis,
@@ -19,7 +20,7 @@ import {
 
 const journeys = [
   {
-    date: "February 2025 — Present",
+    date: "Februari 2026 — Present",
     title: "Web Developer",
     company: "PT Zafa Mulia Mandiri",
     description:
@@ -38,7 +39,7 @@ const journeys = [
     ],
   },
   {
-    date: "January 2025 — February 2025",
+    date: "Maret 2025 — Agustus 2025",
     title: "Web Developer",
     company: "Changhong",
     description:
@@ -52,7 +53,7 @@ const journeys = [
     ],
   },
   {
-    date: "October 2025",
+    date: "Agustus 2025",
     title: "1st Place Winner – UI/UX Competition",
     company: "Rafatech 2025 (UIN Raden Fatah Palembang)",
     description:
@@ -61,13 +62,12 @@ const journeys = [
     stack: [{ icon: SiFigma, color: "text-pink-500" }],
   },
   {
-    date: "May 2024",
+    date: "Agustus 2025",
     title: "Finalist – Web Development Competition",
     company: "Software Development Competition",
     description:
       "Selected as a finalist in a web development competition focused on system design and web application development.",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400",
+    image: imgFinalist.src,
     stack: [
       { icon: SiLaravel, color: "text-red-500" },
       { icon: SiTailwindcss, color: "text-cyan-400" },

@@ -328,9 +328,11 @@ export default function Projects() {
                     Live Preview
                   </a>
 
-                  {project.detailType === "page" ? (
+                  {project.title === "HRIS Zafa Tour" && (
                     <Link
-                      href={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                      href={`/projects/${project.title
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, "-")}`}
                       className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150"
                     >
                       Detail Project
@@ -345,23 +347,6 @@ export default function Projects() {
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </Link>
-                  ) : (
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150 cursor-pointer"
-                    >
-                      Detail Project
-                      <svg
-                        className="w-4 h-4 fill-none stroke-current"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </button>
                   )}
                 </div>
               </div>
