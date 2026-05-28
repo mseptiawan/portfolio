@@ -2,10 +2,40 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@layer base {
+  :root {
+    /* Mode Terang: Background putih bersih (#ffffff) */
+    --background: #ffffff;
+    --foreground: #09090b;
+  }
+
+  .dark {
+    /* Mode Gelap: Balek ke hitam lagi cak semulo */
+    --background: #000000;
+    --foreground: #fafafa;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+/* Biarkan Tailwind / ThemeProvider yang ngatur background body lewat class */
+body {
+  @apply bg-background text-foreground;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.gradient {
+  background: radial-gradient(
+    circle at top,
+    rgba(120, 119, 198, 0.3),
+    transparent 40%
+  );
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
