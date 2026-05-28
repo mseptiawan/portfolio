@@ -1,6 +1,16 @@
 "use client";
-
+import Link from "next/link";
 import Container from "../layout/container";
+import {
+  ExternalLink,
+  Smartphone,
+  Cpu,
+  Layers,
+  Database,
+  Globe,
+  Code2,
+} from "lucide-react";
+import { useState } from "react";
 import imgHris from "@/public/images/projects/hris.png";
 import imgChanghong from "@/public/images/projects/changhong.png";
 import imgBjb from "@/public/images/projects/bjb-rental-mobil-palembang.png";
@@ -8,17 +18,6 @@ import imgBlog from "@/public/images/projects/blog.png";
 import imgCoffe from "@/public/images/projects/coffe.png";
 import imgDirektoriUmkm from "@/public/images/projects/direktori-umkm.png";
 import imgMarketplace from "@/public/images/projects/marketplace-lokal.png";
-
-// Hapus 'GitHub' atau 'Github' dari sini agar Turbopack aman
-import {
-  Globe,
-  Smartphone,
-  Cpu,
-  Database,
-  Layers,
-  Code2,
-  ExternalLink,
-} from "lucide-react";
 
 interface Project {
   title: string;
@@ -29,6 +28,7 @@ interface Project {
   solution: string;
   liveUrl?: string;
   codeUrl?: string;
+  detailType: "page" | "modal";
 }
 
 const projectsData: Project[] = [
@@ -58,6 +58,7 @@ const projectsData: Project[] = [
     problem: "Rekap absensi PT Zafa Mulia Mandiri manual & rawan manipulasi.",
     solution:
       "Mobile absensi geofencing dengan dasbor hitung skor KPI otomatis.",
+    detailType: "page",
   },
   {
     title: "Sistem Insentif Otomatis Promotor",
@@ -83,6 +84,7 @@ const projectsData: Project[] = [
       "Finance PT Changhong menghabiskan waktu berhari-hari rekap skema insentif di spreadsheet.",
     solution:
       "Mesin otomatis yang langsung memproses data penjualan harian jadi laporan siap bayar.",
+    detailType: "page",
   },
   {
     title: "Coffee Directory Platform",
@@ -107,6 +109,7 @@ const projectsData: Project[] = [
       "Sulit mencari kedai kopi independen (hidden gem) yang ramah 'work from cafe'.",
     solution:
       "Sistem filter multi-kriteria interaktif yang terintegrasi maps realtime.",
+    detailType: "modal",
   },
   {
     title: "Marketplace Lokal Nusantara",
@@ -131,6 +134,7 @@ const projectsData: Project[] = [
       "Akses pasar digital yang minim bagi UMKM lokal selama event kompetisi nasional.",
     solution:
       "Aplikasi mobile marketplace ringkas dengan sistem checkout yang dioptimasi.",
+    detailType: "page",
   },
   {
     title: "Sistem Manajemen Rental Mobil",
@@ -152,6 +156,7 @@ const projectsData: Project[] = [
       "Jadwal sewa mobil sering bentrok akibat pencatatan manual makelar properti rental.",
     solution:
       "Kalender ketersediaan armada otomatis terintegrasi sistem payment gateway.",
+    detailType: "modal",
   },
   {
     title: "Direktori UMKM Daerah",
@@ -180,6 +185,7 @@ const projectsData: Project[] = [
       "Data UMKM daerah tersebar tidak beraturan dan sulit diakses investor luar kota.",
     solution:
       "Web direktori berperforma tinggi dengan fitur indexing cerdas dan direct link ke WhatsApp.",
+    detailType: "modal",
   },
   {
     title: "Personal Tech Blog",
@@ -201,8 +207,10 @@ const projectsData: Project[] = [
       "Butuh media penulisan cepat yang mendukung syntax highlighting tanpa overhead database.",
     solution:
       "Arsitektur SSG Next.js dikombinasikan dengan file MDX lokal agar SEO-friendly.",
+    detailType: "modal",
   },
 ];
+
 export default function Projects() {
   return (
     <section
@@ -210,61 +218,54 @@ export default function Projects() {
       className="bg-transparent py-28 border-t border-border/40"
     >
       <Container>
-        {/* HEADER SECTION: Dipastikan Pas di Tengah Halaman */}
         <div className="flex flex-col items-center justify-center text-center mb-24">
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground relative inline-block">
             Featured Work
-            {/* Garis ungu pas di as tengah bawah judul */}
             <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px] bg-purple-600 rounded-full" />
           </h2>
         </div>
 
-        {/* STACK LIST PROYEK: Seluruh Baris Berpusat Menuju Tengah */}
         <div className="flex flex-col items-center space-y-24 w-full">
           {projectsData.map((project, index) => (
             <div
               key={index}
-              // justify-center memastikan kombinasi gambar & teks seimbang di tengah
               className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 w-full max-w-5xl"
             >
-              {/* SISI GAMBAR: Lebar Landscape & Center-Aligned */}
-              <div className="w-full lg:w-[500px] max-w-xl flex-shrink-0 flex justify-center">
-                <div className="relative rounded-2xl bg-muted/20 p-2 shadow-xs w-full group overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden rounded-xl bg-muted border border-border/40">
+              {/* SISI GAMBAR SERTIFIKAT: Bersih tanpa background abu-abu kaku */}
+              <div className="w-full lg:w-[400px] max-w-md flex-shrink-0 flex justify-center">
+                <div className="relative rounded-xl border border-border/60 bg-transparent shadow-md hover:shadow-xl dark:hover:shadow-purple-500/10 transition-all duration-500 group overflow-hidden">
+                  <div className="aspect-video w-full overflow-hidden rounded-xl bg-transparent">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-fit transition-transform duration-700 group-hover:scale-102"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* SISI KONTEN TEKS: Bersih dari double div & Rata Tengah secara Struktur */}
+              {/* Detail Teks */}
               <div className="w-full lg:w-[500px] max-w-xl flex flex-col items-center text-center">
-                {/* Judul Proyek */}
                 <h3 className="text-2xl font-black tracking-tight text-foreground mb-4">
                   {project.title}
                 </h3>
 
-                {/* Card Deskripsi dengan Border dan Lebar Sinkron */}
-                <div className="w-full rounded-2xl border border-border bg-white dark:bg-zinc-900/40 p-6 sm:p-7 shadow-xs backdrop-blur-md mb-5 text-sm leading-relaxed text-muted-foreground font-normal">
-                  {/* Paragraf deskripsi dibuat terpusat */}
+                {/* Card Deskripsi: Sekarang menggunakan bg-zinc-50/60 tembus pandang */}
+                <div className="w-full rounded-2xl border border-border bg-zinc-50/60 dark:bg-zinc-900/30 p-6 sm:p-7 shadow-xs backdrop-blur-md mb-5 text-sm leading-relaxed text-muted-foreground font-normal">
                   <p className="mb-4 text-center">{project.description}</p>
 
-                  {/* Problem & Solution Mini - Teks di dalam box tetap rata kiri agar mudah dibaca */}
                   <div className="pt-4 border-t border-border text-left text-xs space-y-2.5">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-1">
                       <span className="font-extrabold text-foreground min-w-[70px] shrink-0">
                         Problem:
-                      </span>{" "}
+                      </span>
                       <p className="text-muted-foreground">{project.problem}</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-start gap-1">
                       <span className="font-extrabold text-purple-600 dark:text-purple-400 min-w-[70px] shrink-0">
                         Solution:
-                      </span>{" "}
+                      </span>
                       <p className="text-muted-foreground">
                         {project.solution}
                       </p>
@@ -272,7 +273,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Tech Stack Centered */}
+                {/* Tech Stack */}
                 <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {project.techStack.map((tech, idx) => (
                     <span
@@ -285,8 +286,9 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Action Links Centered */}
+                {/* Action Links: Ditambah Button Detail Project */}
                 <div className="flex items-center justify-center gap-6 pt-3 border-t border-border/40 w-full">
+                  {/* Tombol Source Code */}
                   <a
                     href={project.codeUrl || "#"}
                     className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-purple-600 transition-colors duration-150"
@@ -303,6 +305,7 @@ export default function Projects() {
                     Source Code
                   </a>
 
+                  {/* Tombol Live Preview */}
                   <a
                     href={project.liveUrl || "#"}
                     className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-purple-600 transition-colors duration-150"
@@ -310,6 +313,23 @@ export default function Projects() {
                     <ExternalLink className="w-4 h-4" />
                     Live Preview
                   </a>
+
+                  <Link
+                    href={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150"
+                  >
+                    Detail Project
+                    <svg
+                      className="w-4 h-4 fill-none stroke-current"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
