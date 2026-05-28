@@ -32,7 +32,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="mailto:septiawan@example.com"
+              href="mailto:mseptiawan017@gmail.com"
               className="rounded-xl border border-border bg-muted/30 px-6 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-colors duration-200 hover:bg-muted/60"
             >
               Let&apos;s Talk

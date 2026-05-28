@@ -7,6 +7,8 @@ import {
   Cpu,
   Layers,
   Database,
+  ShieldCheck,
+  Terminal,
   Globe,
   Code2,
 } from "lucide-react";
@@ -35,30 +37,40 @@ const projectsData: Project[] = [
   {
     title: "HRIS & KPI Monitoring",
     description:
-      "Sistem HRIS dan monitoring KPI karyawan terintegrasi untuk mengotomatisasi absensi geofencing dan penilaian kinerja secara realtime.",
+      "Sistem HRIS enterprise-grade yang mengotomatisasi seluruh siklus operasional SDM, mulai dari absensi berbasis geofencing, pengajuan cuti dan lembur dengan multi-level approval workflow, hingga manajemen perjalanan dinas dan kalkulasi performa KPI karyawan secara realtime dalam satu platform terintegrasi.",
     image: imgHris.src,
     techStack: [
       {
-        name: "Flutter",
-        icon: <Smartphone className="w-3.5 h-3.5 text-blue-500" />,
+        name: "Node.js",
+        icon: <Terminal className="w-3.5 h-3.5 text-green-600" />,
       },
       {
-        name: "Expo",
-        icon: <Smartphone className="w-3.5 h-3.5 text-zinc-400" />,
+        name: "Express",
+        icon: <Code2 className="w-3.5 h-3.5 text-zinc-600" />,
       },
       {
-        name: "Laravel API",
-        icon: <Code2 className="w-3.5 h-3.5 text-red-500" />,
+        name: "EJS",
+        icon: <Layers className="w-3.5 h-3.5 text-yellow-600" />,
       },
       {
-        name: "MySQL",
-        icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
+        name: "Tailwind CSS",
+        icon: <div className="w-3.5 h-3.5 bg-sky-400 rounded-sm" />, // Ikon custom/simpel untuk Tailwind
+      },
+      {
+        name: "Redis",
+        icon: <Database className="w-3.5 h-3.5 text-red-500" />,
+      },
+      {
+        name: "Zod",
+        icon: <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />,
       },
     ],
-    problem: "Rekap absensi PT Zafa Mulia Mandiri manual & rawan manipulasi.",
+    problem:
+      "Rekap absensi PT Zafa Mulia Mandiri manual, birokrasi persetujuan cuti/lembur yang lambat, serta kesulitan pelacakan anggaran perjalanan dinas.",
     solution:
-      "Mobile absensi geofencing dengan dasbor hitung skor KPI otomatis.",
+      "Platform HRIS berbasis web dengan sistem approval berjenjang (Manager-HR-Director), modul manajemen perjalanan dinas terintegrasi, dan dasbor kalkulasi KPI otomatis.",
     detailType: "page",
+    codeUrl: "https://github.com/mseptiawan/website-zafa-tour",
   },
   {
     title: "Sistem Insentif Otomatis Promotor",
@@ -212,6 +224,7 @@ const projectsData: Project[] = [
 ];
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   return (
     <section
       id="projects"
@@ -238,7 +251,7 @@ export default function Projects() {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-fit transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -305,7 +318,6 @@ export default function Projects() {
                     Source Code
                   </a>
 
-                  {/* Tombol Live Preview */}
                   <a
                     href={project.liveUrl || "#"}
                     className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-purple-600 transition-colors duration-150"
@@ -314,28 +326,79 @@ export default function Projects() {
                     Live Preview
                   </a>
 
-                  <Link
-                    href={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150"
-                  >
-                    Detail Project
-                    <svg
-                      className="w-4 h-4 fill-none stroke-current"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  {project.detailType === "page" ? (
+                    <Link
+                      href={`/projects/${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150"
                     >
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </Link>
+                      Detail Project
+                      <svg
+                        className="w-4 h-4 fill-none stroke-current"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150 cursor-pointer"
+                    >
+                      Detail Project
+                      <svg
+                        className="w-4 h-4 fill-none stroke-current"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </Container>
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+          <div className="bg-white dark:bg-zinc-900 border border-border rounded-2xl max-w-xl w-full p-6 relative shadow-2xl animate-in fade-in zoom-in-95 duration-150">
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground text-sm font-bold cursor-pointer"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-2xl font-black text-foreground mb-2">
+              {selectedProject.title}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-5">
+              {selectedProject.description}
+            </p>
+
+            <div className="space-y-3 text-xs border-t border-border pt-4">
+              <p className="text-muted-foreground">
+                <span className="font-extrabold text-foreground">Problem:</span>{" "}
+                {selectedProject.problem}
+              </p>
+              <p className="text-muted-foreground">
+                <span className="font-extrabold text-purple-600 dark:text-purple-400">
+                  Solution:
+                </span>{" "}
+                {selectedProject.solution}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
