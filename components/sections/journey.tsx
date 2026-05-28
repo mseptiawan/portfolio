@@ -7,6 +7,9 @@ import Container from "../layout/container";
 import {
   SiMongodb,
   SiRedis,
+  SiLaravel,
+  SiFigma,
+  SiMysql,
   SiNodedotjs,
   SiExpress,
   SiHtml5,
@@ -20,7 +23,7 @@ const journeys = [
     title: "Web Developer",
     company: "PT Zafa Mulia Mandiri",
     description:
-      "Built booking systems, admin dashboard, realtime features, and backend architecture for operational workflows.",
+      "Built a modular HRIS platform featuring attendance, leave, overtime, payroll, and approval workflow management.",
     image:
       "https://media.licdn.com/dms/image/v2/D560BAQGDZjqOV-FbMg/company-logo_200_200/company-logo_200_200/0/1724338915770?e=2147483647&v=beta&t=R2nlOve3jdJrPeBJUi8WbkEA29SmdgE91lB5to0KRVc",
     stack: [
@@ -39,12 +42,12 @@ const journeys = [
     title: "Web Developer",
     company: "Changhong",
     description:
-      "Developed internal systems and backend services for company operations.",
+      "Developed a sales and incentive management system for promoter performance tracking, automated incentive calculation, product management, and Excel-based bulk sales processing.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW6TyChgfKNGGglYQUJnkTywOOpkPSDwRVCA&s",
     stack: [
-      { icon: SiExpress, color: "text-foreground" },
-      { icon: SiMongodb, color: "text-green-600" },
+      { icon: SiLaravel, color: "text-red-500" },
+      { icon: SiMysql, color: "text-blue-500" },
       { icon: SiTailwindcss, color: "text-cyan-400" },
     ],
   },
@@ -55,17 +58,22 @@ const journeys = [
     description:
       "Won first place in the national-level UI/UX competition, and also achieved national finalist status in the Web Development competition track.",
     image: imgWinner.src,
-    stack: [],
+    stack: [{ icon: SiFigma, color: "text-pink-500" }],
   },
   {
     date: "May 2024",
-    title: "Finalist Competition",
+    title: "Finalist – Web Development Competition",
     company: "Software Development Competition",
     description:
-      "Selected as finalist among participants in software engineering competition.",
+      "Selected as a finalist in a web development competition focused on system design and web application development.",
     image:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=400",
-    stack: [],
+    stack: [
+      { icon: SiLaravel, color: "text-red-500" },
+      { icon: SiTailwindcss, color: "text-cyan-400" },
+      { icon: SiHtml5, color: "text-orange-500" },
+      { icon: SiCss, color: "text-blue-500" },
+    ],
   },
 ];
 

@@ -15,7 +15,6 @@ interface Achievement {
   image: string;
   type: "Winner" | "Finalist" | "Participant" | "Certification";
   description: string;
-  credentialUrl?: string;
 }
 
 const achievementsData: Achievement[] = [
@@ -75,7 +74,7 @@ export default function Achievements() {
       <Container>
         <div className="flex flex-col items-center justify-center text-center mb-24">
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground relative inline-block">
-            Achievements & Credentials
+            Achievements
             <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px] bg-purple-600 rounded-full" />
           </h2>
         </div>
@@ -129,17 +128,6 @@ export default function Achievements() {
                       <p className="text-muted-foreground">{item.organizer}</p>
                     </div>
                   </div>
-                </div>
-
-                {/* Link Verifikasi: Ikon dan tombol digeser ke kiri juga */}
-                <div className="flex items-center justify-start gap-6 pt-3 border-t border-border/40 w-full">
-                  <a
-                    href={item.credentialUrl || "#"}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-purple-600 transition-colors duration-150"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Credential
-                  </a>
                 </div>
               </div>
             </div>
