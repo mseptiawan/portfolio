@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "../theme-toggle";
 
 const menus = [
   {
@@ -34,7 +33,7 @@ export default function Navbar() {
           href="/"
           className="text-sm font-semibold tracking-wide text-foreground"
         >
-          Portfolio
+          M Septiawan
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -48,8 +47,6 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
-
-        <ThemeToggle />
       </div>
     </header>
   );

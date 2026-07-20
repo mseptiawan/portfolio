@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "../layout/container";
 import {
   SiMongodb,
@@ -15,47 +17,52 @@ import {
 } from "react-icons/si";
 
 const techs = [
-  { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-500" },
-  { name: "Node.js", icon: SiNodedotjs, color: "text-green-600" },
-  { name: "Express.js", icon: SiExpress, color: "text-foreground" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
-  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
+  { name: "MongoDB", icon: SiMongodb, color: "text-emerald-500" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-600" },
+  { name: "Node.js", icon: SiNodedotjs, color: "text-emerald-600" },
+  { name: "Express.js", icon: SiExpress, color: "text-gray-800" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+  { name: "JavaScript", icon: SiJavascript, color: "text-amber-500" },
   { name: "Redis", icon: SiRedis, color: "text-red-500" },
   { name: "Docker", icon: SiDocker, color: "text-sky-500" },
-  { name: "Socket.IO", icon: SiSocketdotio, color: "text-foreground" },
-  { name: "Git", icon: SiGit, color: "text-orange-500" },
-  { name: "Zod", icon: SiZod, color: "text-indigo-500" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
+  { name: "Socket.IO", icon: SiSocketdotio, color: "text-gray-800" },
+  { name: "Git", icon: SiGit, color: "text-orange-600" },
+  { name: "Zod", icon: SiZod, color: "text-indigo-600" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-sky-400" },
 ];
 
 export default function TechStack() {
   return (
-    <section id="tech" className="py-28  flex items-center justify-center">
+    <section id="tech" className="py-24 relative overflow-hidden">
       <Container>
-        <div className="mb-14 text-center">
-          <p className="mb-3 text-xs font-bold tracking-widest text-primary/80 uppercase">
-            TECH STACK
-          </p>
-          <h2 className="text-4xl font-black tracking-tight text-foreground sm:text-5xl">
-            Technologies I work with.
+        {/* SECTION HEADER */}
+        <div className="mx-auto mb-16 max-w-4xl text-left">
+          <span className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+            Tech Stack
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 leading-tight">
+            Technologies I Work With.
           </h2>
+          <p className="mt-2 text-base text-gray-500">
+            Bahasa pemrograman, framework, dan tools yang sering saya gunakan.
+          </p>
         </div>
 
-        <div className="mx-auto max-w-4xl grid grid-cols-2 gap-3 justify-items-center justify-center sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
+        {/* GRID LAYOUT */}
+        <div className="mx-auto max-w-4xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {techs.map((tech) => {
             const Icon = tech.icon;
             return (
               <div
                 key={tech.name}
-                className="group flex aspect-[4/3] w-full max-w-[170px] flex-col items-center justify-center rounded-xl border border-border bg-muted/20 px-4 transition-all duration-200 ease-linear hover:border-foreground hover:bg-muted/40"
+                className="flex items-center gap-3.5 p-4 bg-white border border-gray-200 rounded-2xl transition-all duration-300 hover:border-gray-300 hover:-translate-y-1"
               >
-                <Icon
-                  className={`mb-2.5 text-3xl transition-transform duration-200 ease-linear group-hover:scale-105 ${tech.color}`}
-                />
-                <p className="text-xs font-semibold text-muted-foreground tracking-wide transition-colors duration-200 ease-linear group-hover:text-foreground">
+                <div className="p-2.5 bg-gray-50 border border-gray-100 rounded-xl shrink-0 flex items-center justify-center">
+                  <Icon className={`text-2xl ${tech.color}`} />
+                </div>
+                <span className="text-sm font-bold text-gray-900">
                   {tech.name}
-                </p>
+                </span>
               </div>
             );
           })}

@@ -10,7 +10,7 @@ export default function HrisProjectDetail() {
         {/* TOMBOL KEMBALI */}
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-purple-600 transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors mb-12"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Portfolio
         </Link>

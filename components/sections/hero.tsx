@@ -2,7 +2,7 @@ import Container from "../layout/container";
 
 export default function Hero() {
   return (
-    <section className="gradient relative overflow-hidden pt-48 pb-36 bg-transparant flex items-center justify-center min-h-[85vh]">
+    <section className=" relative overflow-hidden pt-48 pb-36 bg-transparant flex items-center justify-center">
       <Container>
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-4 py-1.5 text-sm font-semibold text-primary backdrop-blur">

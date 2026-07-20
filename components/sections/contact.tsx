@@ -10,7 +10,7 @@ export default function Contact() {
     >
       <Container>
         <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
-          <span className="px-3 py-1 mb-4 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[10px] font-bold tracking-wider uppercase">
+          <span className="px-3 py-1 mb-4 rounded-full border border-slate-200   text-[10px] font-bold tracking-wider uppercase">
             Get In Touch
           </span>
 
@@ -27,7 +27,7 @@ export default function Contact() {
 
           <a
             href="mailto:mseptiawan017@gmail.com"
-            className="rounded-xl border border-border bg-zinc-50/60 dark:bg-zinc-900/30 px-8 py-4 text-sm font-bold text-foreground shadow-xs backdrop-blur-md transition-all duration-200 hover:bg-purple-600 hover:text-white hover:border-purple-600 dark:hover:bg-purple-600/20 cursor-pointer"
+            className="rounded-xl border border-border bg-zinc-50/60 dark:bg-zinc-900/30 px-8 py-4 text-sm font-bold text-foreground shadow-xs backdrop-blur-md transition-all duration-200  cursor-pointer"
           >
             Let&apos;s Talk
           </a>

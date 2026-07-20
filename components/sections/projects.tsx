@@ -22,7 +22,6 @@ import imgChanghong from "@/public/images/projects/changhong.png";
 import imgBjb from "@/public/images/projects/bjb-rental-mobil-palembang.png";
 import imgBlog from "@/public/images/projects/blog.png";
 import imgCoffe from "@/public/images/projects/coffe.png";
-import imgDirektoriUmkm from "@/public/images/projects/direktori-umkm.png";
 import imgMarketplace from "@/public/images/projects/marketplace-lokal.png";
 
 interface Project {
@@ -168,32 +167,7 @@ const projectsData: Project[] = [
     detailType: "modal",
     codeUrl: "https://github.com/mseptiawan/bjb-rentcar-palembang",
   },
-  {
-    title: "Direktori UMKM Daerah",
-    description:
-      "Platform etalase digital interaktif untuk mengindeks dan mempromosikan ribuan UMKM lokal agar lebih go-digital.",
-    image: imgDirektoriUmkm.src,
-    techStack: [
-      {
-        name: "React",
-        icon: <Code2 className="w-3.5 h-3.5 text-cyan-400" />,
-      },
-      {
-        name: "Tailwind CSS",
-        icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
-      },
-      {
-        name: "Leaflet",
-        icon: <Map className="w-3.5 h-3.5 text-emerald-500" />, // Menggunakan ikon Map untuk Leaflet
-      },
-    ],
-    problem:
-      "Data UMKM daerah tersebar tidak beraturan dan sulit diakses investor luar kota.",
-    solution:
-      "Web direktori berperforma tinggi dengan fitur indexing cerdas dan direct link ke WhatsApp.",
-    detailType: "modal",
-    codeUrl: "https://github.com/mseptiawan/direktori-umkm-plg",
-  },
+
   {
     title: "Personal Tech Blog",
     description:
@@ -206,7 +180,7 @@ const projectsData: Project[] = [
       },
       {
         name: "Inertia.js",
-        icon: <RefreshCw className="w-3.5 h-3.5 text-purple-500" />,
+        icon: <RefreshCw className="w-3.5 h-3.5 " />,
       },
       {
         name: "Tailwind CSS",
@@ -228,15 +202,12 @@ const projectsData: Project[] = [
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   return (
-    <section
-      id="projects"
-      className="bg-transparent py-28 border-t border-border/40"
-    >
+    <section id="projects" className="bg-transparent py-28 ">
       <Container>
         <div className="flex flex-col items-center justify-center text-center mb-24">
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground relative inline-block">
             Featured Work
-            <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px] bg-purple-600 rounded-full" />
+            <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px]  rounded-full" />
           </h2>
         </div>
 
@@ -248,12 +219,12 @@ export default function Projects() {
             >
               {/* SISI GAMBAR SERTIFIKAT: Bersih tanpa background abu-abu kaku */}
               <div className="w-full lg:w-[400px] max-w-md flex-shrink-0 flex justify-center">
-                <div className="relative rounded-xl border border-border/60 bg-transparent shadow-md hover:shadow-xl dark:hover:shadow-purple-500/10 transition-all duration-500 group overflow-hidden">
+                <div className="relative rounded-xl border border-border/60 bg-transparent shadow-md hover:shadow-xl  transition-all duration-500 group overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden rounded-xl bg-transparent">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-fit transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-fit transition-transform duration-700 "
                       loading="lazy"
                     />
                   </div>
@@ -278,7 +249,7 @@ export default function Projects() {
                       <p className="text-muted-foreground">{project.problem}</p>
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-start gap-1">
-                      <span className="font-extrabold text-purple-600 dark:text-purple-400 min-w-[70px] shrink-0">
+                      <span className="font-extrabold min-w-[70px] shrink-0">
                         Solution:
                       </span>
                       <p className="text-muted-foreground">
@@ -306,7 +277,7 @@ export default function Projects() {
                   {/* Tombol Source Code */}
                   <a
                     href={project.codeUrl || "#"}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-purple-600 transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground transition-colors duration-150"
                   >
                     <svg
                       className="w-4 h-4 fill-none stroke-current"
@@ -322,7 +293,7 @@ export default function Projects() {
 
                   <a
                     href={project.liveUrl || "#"}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-purple-600 transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground  transition-colors duration-150"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Preview
@@ -333,7 +304,7 @@ export default function Projects() {
                       href={`/projects/${project.title
                         .toLowerCase()
                         .replace(/[^a-z0-9]+/g, "-")}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors duration-150"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold  transition-colors duration-150"
                     >
                       Detail Project
                       <svg

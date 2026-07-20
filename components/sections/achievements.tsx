@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Container from "../layout/container";
-import { ExternalLink } from "lucide-react";
+import { Award, Trophy, Medal, CheckCircle2 } from "lucide-react";
 
 // Impor Gambar Sertifikat / Prestasi
 import imgJuara1Uin from "@/public/images/certificate/juara-1.png";
@@ -27,7 +28,7 @@ const achievementsData: Achievement[] = [
       "Berhasil meraih Juara 1 pada ajang kompetisi desain UI/UX tingkat nasional dengan fokus inovasi solusi interface digital ramah pengguna.",
   },
   {
-    title: "National Web Development Competition Finalist",
+    title: "National Web Development Finalist",
     organizer: "Rafatech UIN Raden Fatah Palembang",
     image: imgPesertaUin.src,
     type: "Finalist",
@@ -36,7 +37,7 @@ const achievementsData: Achievement[] = [
   },
   {
     title: "Multimedia Competition Participant",
-    organizer: "Lembaga / Instansi Penyelenggara Kompetisi",
+    organizer: "Lembaga / Instansi Penyelenggara",
     image: imgPesertaMultimedia.src,
     type: "Participant",
     description:
@@ -53,85 +54,102 @@ const achievementsData: Achievement[] = [
 ];
 
 export default function Achievements() {
-  const getBadgeStyles = (type: string) => {
+  const getBadgeStyle = (type: string) => {
     switch (type) {
       case "Winner":
-        return "bg-amber-500/10 text-amber-500 border-amber-500/20";
+        return {
+          badge: "bg-amber-50 text-amber-700 border-amber-200",
+          icon: Trophy,
+        };
       case "Finalist":
-        return "bg-blue-500/10 text-blue-500 border-blue-500/20";
+        return {
+          badge: "bg-blue-50 text-blue-700 border-blue-200",
+          icon: Medal,
+        };
       case "Certification":
-        return "bg-emerald-500/10 text-emerald-500 border-emerald-500/20";
+        return {
+          badge: "bg-emerald-50 text-emerald-700 border-emerald-200",
+          icon: CheckCircle2,
+        };
       default:
-        return "bg-zinc-500/10 text-muted-foreground border-zinc-500/20";
+        return {
+          badge: "bg-gray-100 text-gray-700 border-gray-200",
+          icon: Award,
+        };
     }
   };
 
   return (
-    <section
-      id="achievements"
-      className="bg-transparent py-28 border-t border-border/40"
-    >
+    <section id="achievements" className="py-24 relative overflow-hidden">
       <Container>
-        <div className="flex flex-col items-center justify-center text-center mb-24">
-          <h2 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground relative inline-block">
+        {/* SECTION HEADER */}
+        <div className="mx-auto mb-16 max-w-4xl text-left">
+          <span className="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
             Achievements
-            <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px] bg-purple-600 rounded-full" />
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 leading-tight">
+            Honors & Certifications.
           </h2>
+          <p className="mt-2 text-base text-gray-500">
+            Penghargaan, sertifikasi, dan keikutsertaan kompetisi yang pernah
+            diraih.
+          </p>
         </div>
 
-        <div className="flex flex-col items-center space-y-24 w-full">
-          {achievementsData.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 w-full max-w-5xl"
-            >
-              {/* SISI GAMBAR SERTIFIKAT: Diperkecil jadi 400px biar manis */}
-              {/* SISI GAMBAR SERTIFIKAT: Bersih tanpa background abu-abu kaku */}
-              <div className="w-full lg:w-[400px] max-w-md flex-shrink-0 flex justify-center">
-                <div className="relative rounded-xl border border-border/60 bg-transparent shadow-md hover:shadow-xl dark:hover:shadow-purple-500/10 transition-all duration-500 group overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden rounded-xl bg-transparent">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-fit transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
+        {/* GRID LAYOUT (2 KOLOM) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {achievementsData.map((item, index) => {
+            const { badge: badgeStyle, icon: BadgeIcon } = getBadgeStyle(
+              item.type,
+            );
+
+            return (
+              <div
+                key={index}
+                className="flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-gray-300 hover:-translate-y-1"
+              >
+                {/* PREVIEW SERTIFIKAT */}
+                <div className="relative aspect-[16/10] w-full bg-gray-50 border-b border-gray-100 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  {/* BADGE CATEGORY */}
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${badgeStyle}`}
+                    >
+                      <BadgeIcon className="w-3.5 h-3.5" />
+                      {item.type}
+                    </span>
+                  </div>
+                </div>
+
+                {/* CONTENT CARD */}
+                <div className="p-6 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* ORGANIZER / AUTHORITY */}
+                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
+                    <span className="font-medium text-gray-400">Issued by</span>
+                    <span className="font-semibold text-gray-700">
+                      {item.organizer}
+                    </span>
                   </div>
                 </div>
               </div>
-
-              {/* SISI KONTEN TEKS: Sekarang rata kiri (items-start & text-left) biar sinkron dan rapi */}
-              <div className="w-full lg:w-[450px] max-w-lg flex flex-col items-start text-left">
-                {/* Badge Tingkat Kompetisi */}
-                <span
-                  className={`px-3 py-1 mb-3 rounded-full border text-[10px] font-bold tracking-wider uppercase ${getBadgeStyles(item.type)}`}
-                >
-                  {item.type}
-                </span>
-
-                {/* Judul Prestasi */}
-                <h3 className="text-2xl font-black tracking-tight text-foreground mb-4">
-                  {item.title}
-                </h3>
-
-                {/* Card Deskripsi Ber-border */}
-                <div className="w-full rounded-2xl border border-border bg-zinc-50/60 dark:bg-zinc-900/30 p-6 sm:p-7 shadow-xs backdrop-blur-md mb-6 text-sm leading-relaxed text-muted-foreground font-normal">
-                  {/* Teks di dalam paragraf juga diubah ke rata kiri */}
-                  <p className="mb-4 text-left">{item.description}</p>
-
-                  {/* Detail Penyelenggara */}
-                  <div className="pt-4 border-t border-border text-left text-xs space-y-2.5">
-                    <div className="flex flex-col sm:flex-row sm:items-start gap-1">
-                      <span className="font-extrabold text-foreground min-w-[90px] shrink-0">
-                        Authority:
-                      </span>{" "}
-                      <p className="text-muted-foreground">{item.organizer}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
