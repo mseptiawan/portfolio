@@ -10,7 +10,7 @@
 
 ---
 
-## ✨ Overview
+## Overview
 
 This project is my personal portfolio website, designed to present my software engineering experience, featured projects, and technical expertise in a clean and responsive interface.
 
@@ -18,7 +18,7 @@ The portfolio highlights my work in backend development, REST API design, databa
 
 ---
 
-## 🚀 Features
+## Features
 
 - Responsive modern UI
 - Dark mode support
@@ -32,7 +32,7 @@ The portfolio highlights my work in backend development, REST API design, databa
 
 ---
 
-## 📸 Preview
+## Preview
 
 <p align="center">
   <img src="docs/images/portofolio-1.png" alt="Homepage" width="100%" />
@@ -62,7 +62,7 @@ The portfolio highlights my work in backend development, REST API design, databa
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 app/
@@ -74,7 +74,7 @@ docs/
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 Clone this repository.
 
@@ -108,7 +108,7 @@ http://localhost:3000
 
 ---
 
-## 📦 Build for Production
+## Build for Production
 
 ```bash
 npm run build
@@ -117,7 +117,7 @@ npm start
 
 ---
 
-## 📄 License
+## License
 
 This project is available for learning purposes.
 
@@ -125,7 +125,7 @@ Please do not copy the design or content without permission.
 
 ---
 
-## 👨‍💻 Author
+## 👨Author
 
 **M. Septiawan**
 
@@ -138,7 +138,3 @@ Backend Developer
 - System Architecture
 
 ---
-
-<p align="center">
-Made with ❤️ using Next.js & Tailwind CSS
-</p>
