@@ -17,6 +17,7 @@ import {
   Code2,
 } from "lucide-react";
 import { useState } from "react";
+import imgInventaris from "@/public/images/projects/inventaris.png";
 import imgHris from "@/public/images/projects/hris.png";
 import imgChanghong from "@/public/images/projects/changhong.png";
 import imgBjb from "@/public/images/projects/bjb-rental-mobil-palembang.png";
@@ -75,6 +76,45 @@ const projectsData: Project[] = [
     detailType: "page",
     codeUrl: "https://github.com/mseptiawan/website-zafa-tour",
   },
+  {
+  title: "Sistem Manajemen Inventaris - Toko Sariputih",
+  description:
+    "Sistem manajemen inventaris berbasis web enterprise-grade yang mengelola seluruh siklus operasional gudang, mulai dari master data (produk, kategori, supplier, customer), mutasi stok masuk/keluar, stock opname dengan penyesuaian otomatis, hingga sistem kasir (POS) terintegrasi dan laporan realtime dengan RBAC multi-role.",
+  image: imgInventaris.src, // <-- nanti tambahkan import gambarnya
+  techStack: [
+    {
+      name: "Laravel",
+      icon: <Code2 className="w-3.5 h-3.5 text-red-500" />,
+    },
+    {
+      name: "PHP 8.2",
+      icon: <Terminal className="w-3.5 h-3.5 text-indigo-600" />,
+    },
+    {
+      name: "MySQL",
+      icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
+    },
+    {
+      name: "Tailwind CSS",
+      icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
+    },
+    {
+      name: "Alpine.js",
+      icon: <Atom className="w-3.5 h-3.5 text-green-500" />,
+    },
+    {
+      name: "RBAC",
+      icon: <ShieldCheck className="w-3.5 h-3.5 text-purple-500" />,
+    },
+  ],
+  problem:
+    "PT Sariputih masih menggunakan Excel untuk manajemen stok, stock opname manual rawan selisih, dan tidak ada sistem kasir terintegrasi yang bisa memantau penjualan harian secara realtime.",
+  solution:
+    "Platform inventaris berbasis Laravel dengan 6 role berbeda (Super Admin, Admin, Staff Gudang, Kasir, Manager, Viewer), fitur stock opname otomatis dengan audit trail, dan sistem POS (Point of Sale) terintegrasi dengan laporan laba/rugi realtime.",
+  detailType: "page",
+  codeUrl: "https://github.com/mseptiawan/inventaris",
+  liveUrl: "#", 
+},
   {
     title: "Sistem Insentif Otomatis Promotor",
     description:
