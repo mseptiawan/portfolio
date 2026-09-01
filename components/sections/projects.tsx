@@ -3,11 +3,8 @@ import Link from "next/link";
 import Container from "../layout/container";
 import {
   ExternalLink,
-  Smartphone,
-  Cpu,
   Layers,
   Database,
-  Map,
   ShieldCheck,
   Terminal,
   Zap,
@@ -15,6 +12,8 @@ import {
   Atom,
   RefreshCw,
   Code2,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { useState } from "react";
 import imgInventaris from "@/public/images/projects/inventaris.png";
@@ -58,7 +57,7 @@ const projectsData: Project[] = [
       },
       {
         name: "Tailwind CSS",
-        icon: <div className="w-3.5 h-3.5 bg-sky-400 rounded-sm" />, // Ikon custom/simpel untuk Tailwind
+        icon: <div className="w-3.5 h-3.5 bg-sky-400 rounded-sm" />,
       },
       {
         name: "Redis",
@@ -77,44 +76,44 @@ const projectsData: Project[] = [
     codeUrl: "https://github.com/mseptiawan/website-zafa-tour",
   },
   {
-  title: "Sistem Manajemen Inventaris - Toko Sariputih",
-  description:
-    "Sistem manajemen inventaris berbasis web enterprise-grade yang mengelola seluruh siklus operasional gudang, mulai dari master data (produk, kategori, supplier, customer), mutasi stok masuk/keluar, stock opname dengan penyesuaian otomatis, hingga sistem kasir (POS) terintegrasi dan laporan realtime dengan RBAC multi-role.",
-  image: imgInventaris.src, // <-- nanti tambahkan import gambarnya
-  techStack: [
-    {
-      name: "Laravel",
-      icon: <Code2 className="w-3.5 h-3.5 text-red-500" />,
-    },
-    {
-      name: "PHP 8.2",
-      icon: <Terminal className="w-3.5 h-3.5 text-indigo-600" />,
-    },
-    {
-      name: "MySQL",
-      icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
-    },
-    {
-      name: "Alpine.js",
-      icon: <Atom className="w-3.5 h-3.5 text-green-500" />,
-    },
-    {
-      name: "RBAC",
-      icon: <ShieldCheck className="w-3.5 h-3.5 text-purple-500" />,
-    },
-  ],
-  problem:
-    "PT Sariputih masih menggunakan Excel untuk manajemen stok, stock opname manual rawan selisih, dan tidak ada sistem kasir terintegrasi yang bisa memantau penjualan harian secara realtime.",
-  solution:
-    "Platform inventaris berbasis Laravel dengan 6 role berbeda (Super Admin, Admin, Staff Gudang, Kasir, Manager, Viewer), fitur stock opname otomatis dengan audit trail, dan sistem POS (Point of Sale) terintegrasi dengan laporan laba/rugi realtime.",
-  detailType: "page",
-  codeUrl: "https://github.com/mseptiawan/inventaris",
-  liveUrl: "#", 
-},
+    title: "Sistem Manajemen Inventaris - Toko Sariputih",
+    description:
+      "Sistem manajemen inventaris berbasis web enterprise-grade yang mengelola seluruh siklus operasional gudang, mulai dari master data (produk, kategori, supplier, customer), mutasi stok masuk/keluar, stock opname dengan penyesuaian otomatis, hingga sistem kasir (POS) terintegrasi dan laporan realtime dengan RBAC multi-role.",
+    image: imgInventaris.src,
+    techStack: [
+      {
+        name: "Laravel",
+        icon: <Code2 className="w-3.5 h-3.5 text-red-500" />,
+      },
+      {
+        name: "PHP 8.2",
+        icon: <Terminal className="w-3.5 h-3.5 text-indigo-600" />,
+      },
+      {
+        name: "MySQL",
+        icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
+      },
+      {
+        name: "Tailwind CSS",
+        icon: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
+      },
+      {
+        name: "Alpine.js",
+        icon: <Atom className="w-3.5 h-3.5 text-green-500" />,
+      },
+      {
+        name: "RBAC",
+        icon: <ShieldCheck className="w-3.5 h-3.5 text-purple-500" />,
+      },
+    ],
+    problem:
+      "PT Sariputih masih menggunakan Excel untuk manajemen stok, stock opname manual rawan selisih, dan tidak ada sistem kasir terintegrasi yang bisa memantau penjualan harian secara realtime.",
+    solution:
+      "Platform inventaris berbasis Laravel dengan 6 role berbeda (Super Admin, Admin, Staff Gudang, Kasir, Manager, Viewer), fitur stock opname otomatis dengan audit trail, dan sistem POS (Point of Sale) terintegrasi dengan laporan laba/rugi realtime.",
+    detailType: "page",
+    codeUrl: "https://github.com/mseptiawan/inventaris",
+    liveUrl: "#",
+  },
   {
     title: "Sistem Insentif Otomatis Promotor",
     description:
@@ -123,15 +122,15 @@ const projectsData: Project[] = [
     techStack: [
       {
         name: "Laravel",
-        icon: <Code2 className="w-3.5 h-3.5 text-red-500" />, // Ikon merah khas Laravel
+        icon: <Code2 className="w-3.5 h-3.5 text-red-500" />,
       },
       {
         name: "MySQL",
-        icon: <Database className="w-3.5 h-3.5 text-blue-600" />, // Ikon biru khas MySQL
+        icon: <Database className="w-3.5 h-3.5 text-blue-600" />,
       },
       {
         name: "HTML",
-        icon: <Layers className="w-3.5 h-3.5 text-orange-500" />, // Ikon orange khas HTML
+        icon: <Layers className="w-3.5 h-3.5 text-orange-500" />,
       },
     ],
     problem:
@@ -179,7 +178,7 @@ const projectsData: Project[] = [
       },
       {
         name: "Pusher",
-        icon: <Zap className="w-3.5 h-3.5 text-amber-500" />, // Ikon petir khas Pusher
+        icon: <Zap className="w-3.5 h-3.5 text-amber-500" />,
       },
     ],
     problem:
@@ -207,7 +206,6 @@ const projectsData: Project[] = [
     detailType: "modal",
     codeUrl: "https://github.com/mseptiawan/bjb-rentcar-palembang",
   },
-
   {
     title: "Personal Tech Blog",
     description:
@@ -241,30 +239,35 @@ const projectsData: Project[] = [
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  // Ambil 3 data pertama jika showAll bernilai false
+  const displayedProjects = showAll ? projectsData : projectsData.slice(0, 3);
+
   return (
     <section id="projects" className="bg-transparent py-28 ">
       <Container>
         <div className="flex flex-col items-center justify-center text-center mb-24">
           <h2 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground relative inline-block">
             Featured Work
-            <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px]  rounded-full" />
+            <span className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-20 h-[4px] rounded-full" />
           </h2>
         </div>
 
         <div className="flex flex-col items-center space-y-24 w-full">
-          {projectsData.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <div
               key={index}
               className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16 w-full max-w-5xl"
             >
-              {/* SISI GAMBAR SERTIFIKAT: Bersih tanpa background abu-abu kaku */}
+              {/* SISI GAMBAR */}
               <div className="w-full lg:w-[400px] max-w-md flex-shrink-0 flex justify-center">
-                <div className="relative rounded-xl border border-border/60 bg-transparent shadow-md hover:shadow-xl  transition-all duration-500 group overflow-hidden">
+                <div className="relative rounded-xl border border-border/60 bg-transparent shadow-md hover:shadow-xl transition-all duration-500 group overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden rounded-xl bg-transparent">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-fit transition-transform duration-700 "
+                      className="w-full h-full object-fit transition-transform duration-700"
                       loading="lazy"
                     />
                   </div>
@@ -277,7 +280,7 @@ export default function Projects() {
                   {project.title}
                 </h3>
 
-                {/* Card Deskripsi: Sekarang menggunakan bg-zinc-50/60 tembus pandang */}
+                {/* Card Deskripsi */}
                 <div className="w-full rounded-2xl border border-border bg-zinc-50/60 dark:bg-zinc-900/30 p-6 sm:p-7 shadow-xs backdrop-blur-md mb-5 text-sm leading-relaxed text-muted-foreground font-normal">
                   <p className="mb-4 text-center">{project.description}</p>
 
@@ -312,9 +315,8 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Action Links: Ditambah Button Detail Project */}
+                {/* Action Links */}
                 <div className="flex items-center justify-center gap-6 pt-3 border-t border-border/40 w-full">
-                  {/* Tombol Source Code */}
                   <a
                     href={project.codeUrl || "#"}
                     className="inline-flex items-center gap-2 text-sm font-bold text-foreground transition-colors duration-150"
@@ -333,7 +335,7 @@ export default function Projects() {
 
                   <a
                     href={project.liveUrl || "#"}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground  transition-colors duration-150"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-foreground transition-colors duration-150"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Preview
@@ -344,7 +346,7 @@ export default function Projects() {
                       href={`/projects/${project.title
                         .toLowerCase()
                         .replace(/[^a-z0-9]+/g, "-")}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold  transition-colors duration-150"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold transition-colors duration-150"
                     >
                       Detail Project
                       <svg
@@ -364,7 +366,31 @@ export default function Projects() {
             </div>
           ))}
         </div>
+
+        {/* Tombol Lihat Semua Proyek / Sembunyikan */}
+        {projectsData.length > 3 && (
+          <div className="mt-16 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-bold text-sm shadow-md hover:opacity-90 transition-all duration-200 cursor-pointer"
+            >
+              {showAll ? (
+                <>
+                  Sembunyikan Proyek
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  Lihat Semua Proyek ({projectsData.length})
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </Container>
+
+      {/* Modal Detail Project */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
           <div className="bg-white dark:bg-zinc-900 border border-border rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-2xl animate-in fade-in zoom-in-95 duration-200">
@@ -386,9 +412,9 @@ export default function Projects() {
               </p>
             </div>
 
-            {/* Main Grid: Visual di kiri, Data di kanan */}
+            {/* Main Grid */}
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Kolom Kiri: Visual/Images */}
+              {/* Kolom Kiri */}
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-2">
                   <img
@@ -409,9 +435,8 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Kolom Kanan: Data */}
+              {/* Kolom Kanan */}
               <div className="space-y-6">
-                {/* Key Impact */}
                 <div className="bg-zinc-50 dark:bg-zinc-800/50 p-4 rounded-xl border border-border">
                   <h4 className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-4">
                     Key Business Impact
@@ -434,7 +459,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* PIECES Ringkas */}
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest mb-3">
                     Problem (PIECES)
@@ -457,7 +481,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Buttons */}
                 <div className="flex gap-3 pt-4">
                   <a
                     href="#"

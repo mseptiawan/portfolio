@@ -9,11 +9,11 @@ export default function About() {
             ABOUT ME
           </p>
 
-          <p className="text-xl sm:text-2xl md:text-3xl font-medium leading-relaxed text-muted-foreground">
-            I build backend systems using Node.js ecosystem, focusing on REST
-            API development, authentication, realtime communication, database
-            architecture, and scalable application design.
-          </p>
+        <p className="text-xl sm:text-2xl md:text-3xl font-medium leading-relaxed text-muted-foreground">
+  I build web applications from concept to deployment, focusing on clean code,
+  intuitive user experiences, and robust backend logic. I enjoy crafting
+  solutions that are not only functional but also maintainable and scalable.
+</p>
         </div>
       </Container>
     </section>
