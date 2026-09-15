@@ -6,30 +6,51 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-transparent py-28 border-t border-border/40 relative overflow-hidden"
+      className="relative overflow-hidden py-24 bg-white border-t border-[#E5E7EB]"
     >
+      {/* Dekorasi background halus */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 h-80 w-[36rem] rounded-full bg-blue-50 blur-3xl opacity-60" />
+      </div>
+
       <Container>
-        <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
-          <span className="px-3 py-1 mb-4 rounded-full border border-slate-200 text-[10px] font-bold tracking-wider uppercase">
+        <div className="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
+          {/* Badge */}
+          <span className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-blue-100 bg-blue-50 text-[11px] font-bold tracking-wider uppercase text-[#2563EB]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2563EB] opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
+            </span>
             Open for Opportunities
           </span>
 
-          <h2 className="text-3xl font-black tracking-tight sm:text-4xl text-foreground mb-4">
-            Ready to Build Your Next Web Solution
+          {/* Headline */}
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-[#111827] sm:text-4xl leading-tight">
+            Let&apos;s Solve Business Problems
+            <br className="hidden sm:block" />{" "}
+            <span className="text-[#2563EB]">with Better Systems.</span>
           </h2>
 
-          <p className="text-sm sm:text-base leading-relaxed text-muted-foreground font-normal mb-8">
-            I'm actively looking for my first professional role as a Web Developer.
-            I bring hands-on experience in Laravel, Node.js, and fullstack development
-            — with a portfolio of real projects ready to showcase. Let's talk about
-            how I can contribute to your team.
+          {/* Deskripsi */}
+          <p className="mb-8 text-sm sm:text-base leading-relaxed text-[#6B7280]">
+            I&apos;m currently looking for opportunities as a{" "}
+            <span className="font-semibold text-[#111827]">
+              Junior System Analyst
+            </span>
+            ,{" "}
+            <span className="font-semibold text-[#111827]">System Analyst</span>
+            , or related roles. I&apos;m interested in understanding business
+            needs, analyzing processes, defining system requirements, and
+            designing practical solutions that create real value for users and
+            organizations.
           </p>
 
+          {/* CTA */}
           <a
             href="mailto:mseptiawan017@gmail.com"
-            className="rounded-xl border border-border bg-zinc-50/60 dark:bg-zinc-900/30 px-8 py-4 text-sm font-bold text-foreground shadow-xs backdrop-blur-md transition-all duration-200 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800"
+            className="inline-flex items-center rounded-xl bg-[#2563EB] px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700 hover:-translate-y-0.5"
           >
-            Let's Talk
+            Let&apos;s Talk
           </a>
         </div>
       </Container>
