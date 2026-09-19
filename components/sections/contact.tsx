@@ -16,13 +16,7 @@ export default function Contact() {
       <Container>
         <div className="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-blue-100 bg-blue-50 text-[11px] font-bold tracking-wider uppercase text-[#2563EB]">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2563EB] opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
-            </span>
-            Open for Opportunities
-          </span>
+          
 
           {/* Headline */}
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-[#111827] sm:text-4xl leading-tight">

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "../layout/container";
 import { FileText, ArrowRight, Mail } from "lucide-react";
-import profileImg from "@/public/images/profile.jpeg"; // ganti sesuai nama file Anda
+import profileImg from "@/public/images/profile.png"; // ganti sesuai nama file Anda
 
 export default function Hero() {
   return (
@@ -22,10 +22,6 @@ export default function Hero() {
              ===================================================== */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Badge kecil */}
-            <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-[#2563EB] uppercase bg-blue-50 rounded-full border border-blue-100">
-              <FileText className="w-3.5 h-3.5" />
-              System Analyst
-            </span>
 
             {/* Headline */}
             <h1 className="mb-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#111827] leading-[1.1]">
