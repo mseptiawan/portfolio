@@ -3,9 +3,7 @@
 import Container from "../layout/container";
 import {
   SiMysql,
-  SiMongodb,
   SiPostman,
-  SiNodedotjs,
   SiGit,
 } from "react-icons/si";
 import { Database, FileText, Workflow, PenTool } from "lucide-react";
@@ -39,10 +37,8 @@ const designItems = ["Figma", "draw.io", "Lucidchart", "Jira"];
 const techItems = [
   { name: "SQL", icon: Database, color: "text-[#2563EB]" },
   { name: "MySQL", icon: SiMysql, color: "text-[#2563EB]" },
-  { name: "MongoDB", icon: SiMongodb, color: "text-emerald-500" },
   { name: "REST API", icon: Workflow, color: "text-purple-600" },
   { name: "Postman", icon: SiPostman, color: "text-orange-500" },
-  { name: "Node.js", icon: SiNodedotjs, color: "text-emerald-600" },
   { name: "Git", icon: SiGit, color: "text-orange-600" },
 ];
 
@@ -157,23 +153,23 @@ export default function TechStack() {
             </div>
           </Category>
 
-          {/* TECHNICAL */}
-          <Category
-            icon={Workflow}
-            iconColor="text-emerald-600"
-            title="Technical"
-          >
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5">
-              {techItems.map((tech) => (
-                <IconCard
-                  key={tech.name}
-                  name={tech.name}
-                  icon={tech.icon}
-                  color={tech.color}
-                />
-              ))}
-            </div>
-          </Category>
+         {/* TECHNICAL */}
+<Category
+  icon={Workflow}
+  iconColor="text-emerald-600"
+  title="Technical"
+>
+  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+    {techItems.map((tech) => (
+      <IconCard
+        key={tech.name}
+        name={tech.name}
+        icon={tech.icon}
+        color={tech.color}
+      />
+    ))}
+  </div>
+</Category>
         </div>
       </Container>
     </section>

@@ -22,33 +22,44 @@ import {
    DATA
    ========================================================= */
 const experiences = [
-  {
-    date: "Jan 2026 — Jul 2026",
-    title: "Web Developer Intern | System Analysis",
-    company: "PT Zafa Mulia Mandiri",
-    desc: "Analyzed business processes and system requirements for an HRIS platform, then contributed to the design and development of the system.",
-    image:
-      "https://media.licdn.com/dms/image/v2/D560BAQGDZjqOV-FbMg/company-logo_200_200/company-logo_200_200/0/1724338915770?e=2147483647&v=beta&t=R2nlOve3jdJrPeBJUi8WbkEA29SmdgE91lB5to0KRVc",
-    tech: [
-      "Requirements Analysis",
-      "BPMN",
-      "UML",
-      "Node.js",
-      "Express",
-      "MongoDB",
-    ],
-    kind: "work",
-  },
-  {
-    date: "Mar 2025 — Aug 2025",
-    title: "Web Developer",
-    company: "Changhong",
-    desc: "Built sales & incentive system for promoter performance tracking and automated calculation.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW6TyChgfKNGGglYQUJnkTywOOpkPSDwRVCA&s",
-    tech: ["Laravel", "MySQL", "Tailwind"],
-    kind: "work",
-  },
+ {
+  date: "Jan 2026 — Jul 2026",
+  title: "System Analyst | Academic Project",
+  company: "PT Zafa Mulia Mandiri",
+  desc: "Analyzed business processes and system requirements for an HRIS platform, then contributed to the system design, documentation (BRD & SRS), and implementation.",
+  image: "https://media.licdn.com/dms/image/v2/D560BAQGDZjqOV-FbMg/company-logo_200_200/company-logo_200_200/0/1724338915770?e=2147483647&v=beta&t=R2nlOve3jdJrPeBJUi8WbkEA29SmdgE91lB5to0KRVc",
+  tech: [
+    "Requirements Analysis",
+    "BPMN",
+    "UML",
+    "BRD",
+    "SRS",
+    "ERD",
+    "Node.js",
+    "Express",
+    "MongoDB",
+  ],
+  kind: "work",
+},
+ {
+  date: "Mar 2025 — Aug 2025",
+  title: "System Analyst | Kerja Praktik",
+  company: "Changhong - Palembang Branch",
+  desc: "Analyzed promoter performance tracking requirements and designed an automated incentive calculation system. Documented business processes, system requirements, and contributed to the web-based implementation.",
+  image:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW6TyChgfKNGGglYQUJnkTywOOpkPSDwRVCA&s",
+  tech: [
+    "Requirements Analysis",
+    "BPMN",
+    "UML",
+    "ERD",
+    "SRS",
+    "Laravel",
+    "MySQL",
+    "Tailwind",
+  ],
+  kind: "work",
+},
   {
     date: "Aug 2025",
     title: "Juara 1 UI/UX Competition",
@@ -58,15 +69,21 @@ const experiences = [
     tech: ["Figma"],
     kind: "award",
   },
-  {
-    date: "Aug 2025",
-    title: "Finalist Web Development",
-    company: "Software Development Competition",
-    desc: "Selected as finalist in web development competition focused on system design.",
-    image: imgFinalist.src,
-    tech: ["Laravel", "Tailwind", "HTML", "CSS"],
-    kind: "award",
-  },
+ {
+  date: "Aug 2025",
+  title: "Finalist — Web Development Competition",
+  company: "Software Development Competition",
+  desc: "Selected as a finalist in a web development competition focused on system design, business process modeling, and full-stack implementation.",
+  image: imgFinalist.src,
+  tech: [
+    "System Design",
+    "Laravel",
+    "Tailwind",
+    "HTML",
+    "CSS",
+  ],
+  kind: "award",
+},
 ];
 
 /* =========================================================
@@ -105,16 +122,12 @@ const kindStyles = {
   work: {
     label: "Experience",
     icon: Briefcase,
-    color: "text-blue-600",
-    bg: "bg-blue-50",
-    border: "border-blue-100",
+    classes: "text-blue-600 bg-blue-50 border-blue-100",
   },
   award: {
     label: "Achievement",
     icon: Trophy,
-    color: "text-amber-600",
-    bg: "bg-amber-50",
-    border: "border-amber-100",
+    classes: "text-amber-600 bg-amber-50 border-amber-100",
   },
 };
 
@@ -171,12 +184,12 @@ export default function Journey() {
                   <div className="flex-1 min-w-0 bg-white border border-gray-200 rounded-2xl p-5 transition-all duration-300 hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5">
                     {/* Baris atas: badge + tanggal */}
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${style.bg} ${style.color} ${style.border}`}
-                      >
-                        <KindIcon className="w-3 h-3" />
-                        {style.label}
-                      </span>
+                     <span
+  className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${style.classes}`}
+>
+  <KindIcon className="w-3 h-3" />
+  {style.label}
+</span>
                       <span className="text-xs text-gray-400 whitespace-nowrap">
                         {item.date}
                       </span>
